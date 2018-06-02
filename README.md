@@ -9,6 +9,7 @@ Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https:
 ## Description
 + ```ScienceVisuals/```: Lectures on improving science figures
     + ```LineGraph/```: Script on improving line graphs 
+    + ```MapGraph/``` : Script on improving map plots
     + ```Presentations/```: Powerpoints on discussing science visualization 
 + ```Data/```: Additional data files not provided by Python URL functions
 + ```Figures/```: Arbitrary figures as examples from listed scripts
