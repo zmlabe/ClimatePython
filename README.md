@@ -29,5 +29,6 @@ Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https:
 + NOAA Merged Land Ocean Global Surface Temperature (NOAAGlobalTemp) : [[DATA]](https://www.ncdc.noaa.gov/data-access/marineocean-data/noaa-global-surface-temperature-noaaglobaltemp)
     + Vose, Russell S., et al. "NOAA's merged land–ocean surface temperature analysis." Bulletin of the American Meteorological Society 93.11 (2012): 1677-1685. [[Publication]](https://journals.ametsoc.org/doi/abs/10.1175/BAMS-D-11-00241.1)
 ###### Reanalysis Data 
++ ERA5 : [[DATA]](http://apps.ecmwf.int/data-catalogues/era5/?class=ea)
 + NCEP/NCAR Reanalysis 1 (R1): [[DATA]](https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.html)
     + Kalnay, E., and co-authors, 1996: The NCEP/NCAR 40-year reanalysis project. Bulletin of the American meteorological Society, 77(3), 437-471 [[Publication]](http://journals.ametsoc.org/doi/abs/10.1175/1520-0477(1996)077%3C0437:TNYRP%3E2.0.CO;2)
