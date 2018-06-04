@@ -1,4 +1,4 @@
-# ClimatePython
+# ClimatePython [![DOI](https://zenodo.org/badge/135844507.svg)](https://zenodo.org/badge/latestdoi/135844507)
 This repository contains a variety of Python tutorials and lectures I've used in climate/atmospheric sciences. Check back soon!
 
 ###### Under construction... ```[Python 3.6]```
