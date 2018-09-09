@@ -98,6 +98,11 @@ plt.text(2017.4,sie60[-1]-0.1,r'\textbf{60\%}',color=cmocean.cm.ice(0.65),fontsi
 plt.text(2017.4,sie75[-1]-0.1,r'\textbf{75\%}',color=cmocean.cm.ice(0.45),fontsize=15)
 plt.text(2017.4,sie90[-1]-0.1,r'\textbf{90\%}',color=cmocean.cm.ice(0.2),fontsize=15)
 
+plt.text(2018,6,r'\textbf{Sea Ice}',color='darkgrey',fontsize=8,
+          ha='center',va='center')
+plt.text(2018.,5.7,r'\textbf{Concentration}',color='darkgrey',fontsize=8,
+          ha='center',va='center')
+
 plt.ylabel(r'\textbf{Extent [$\bf{\times}$10$^{6}$\ \textbf{km}$^2$]}',
            fontsize=13,color='darkgrey',labelpad=10)
 plt.title(r'\textbf{SEPTEMBER ARCTIC SEA ICE EXTENT}',fontsize=21,
