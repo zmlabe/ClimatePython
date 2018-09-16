@@ -23,7 +23,7 @@ directorydata = '/seley/zlabe/seaice/nsidc/SepMinSIC/'
 directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/VisualsNOAA/' 
 
 yearmin = 1979               # first time includes 12 months
-yearmax = 2017
+yearmax = 2018
 years = np.arange(yearmin,yearmax+1,1)
 months = np.arange(1,13,1)
        
@@ -89,7 +89,7 @@ lat2,lon2,sic,hdr,mask = sicRead(directorydata,years)
 
 ### Calculate climatology
 yearmean = np.where((years>=1981) & (years<=2010))[0]
-mean = np.nanmean(sic[yearmean],axis=0)
+mean = np.nanmedian(sic[yearmean],axis=0)
 
 def netcdfFile(lats,lons,var,directory):
     print('\n>>> Using netcdfFile function!')
@@ -118,7 +118,7 @@ def netcdfFile(lats,lons,var,directory):
     ncfile.references = 'SSMIS (DMSP)]'
     
     ### Data
-    years[:] = np.arange(1979,2017+1,1)
+    years[:] = np.arange(1979,2018+1,1)
     latitude[:] = lats
     longitude[:] = lons
     varns[:] = var
@@ -129,10 +129,10 @@ def netcdfFile(lats,lons,var,directory):
 def netcdfFileMean(lats,lons,var,directory):
     print('\n>>> Using netcdfFile function!')
     
-    name = 'NSIDC_09_Climo.nc'
+    name = 'NSIDC_09_Median.nc'
     filename = directory + name
     ncfile = Dataset(filename,'w',format='NETCDF4')
-    ncfile.description = '15 September Climo (1981-2010) SIC data'
+    ncfile.description = '15 September Median (1981-2010) SIC data'
     
     ### Dimensions
     ncfile.createDimension('lat',var.shape[0])
@@ -158,5 +158,5 @@ def netcdfFileMean(lats,lons,var,directory):
     ncfile.close()
     print('*Completed: Created netCDF4 File!')
     
-#netcdfFile(lat2,lon2,sic,directorydata)
+netcdfFile(lat2,lon2,sic,directorydata)
 netcdfFileMean(lat2,lon2,mean,directorydata)
