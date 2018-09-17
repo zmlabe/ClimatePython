@@ -1,8 +1,11 @@
 """
-HadCRUT4 Temperature anomalies (gridded)
-Website   : https://crudata.uea.ac.uk/cru/data/temperature/
-Author    : Zachary M. Labe
-Date      : 15 June 2016
+Script reads Sea Ice Concentrations from Nimbus-7 SMMR and DMSP SSM/I-SSMIS
+Passive Microwave Data, Version 1 binary files for select variables and 
+regrids according to selected grid style (e.g., NSIDC EASE grid data). 
+ 
+Source : https://nsidc.org/data/nsidc-0051#
+Author : Zachary Labe
+Date : 19 August 2018
 """
 
 from netCDF4 import Dataset
