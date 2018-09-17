@@ -81,6 +81,9 @@ for i in range(sic.shape[0]):
     limit = np.arange(0,101,5)
     
     cs = m.contourf(lon2,lat2,var,limit,latlon=True)
+    cs1 = m.contour(lon2,lat2,mean,
+                    np.arange(15,30,15),alpha=1,latlon=True,
+                    linewidths=1.5,colors='darkorange')
     
 #    parallels = np.arange(50,86,5)
 #    meridians = np.arange(-180,180,30)
@@ -88,13 +91,16 @@ for i in range(sic.shape[0]):
 #                    color='w')
 #    par=m.drawmeridians(meridians,labels=[True,True,False,False],linewidth=0.0,
 #                        fontsize=3,color='w')
-    setcolor(par,'darkgrey')
+#    setcolor(par,'darkgrey')
     
     cmap = cmocean.cm.ice  
     cs.set_cmap(cmap)
     plt.annotate(r'\textbf{%s}' % years[i],textcoords='axes fraction',
                 xy=(0,0), xytext=(0.5,1.1),
             fontsize=30,color='w',ha='center',va='center')
+    plt.annotate(r'\textbf{1981-2010 Median : Orange}',textcoords='figure fraction',
+                xy=(0,0), xytext=(0.5,0.18),
+            fontsize=6,color='darkorange',ha='center',va='center')
 
 ###############################################################################  
 ###############################################################################  
@@ -114,9 +120,9 @@ for i in range(sic.shape[0]):
     barlim = np.arange(0.1,1.1,1)
     
     cs = m.contourf(lon2,lat2,var2,limit,latlon=True)
-#    cs1 = m.contour(lon2,lat2,mean,
-#                    np.arange(15,30,15),alpha=1,latlon=True,
-#                    linewidths=2,colors='darkorange')
+    cs1 = m.contour(lon2,lat2,mean,
+                    np.arange(15,30,15),alpha=1,latlon=True,
+                    linewidths=1.5,colors='darkorange')
     
 #    parallels = np.arange(50,86,5)
 #    meridians = np.arange(-180,180,30)
@@ -124,7 +130,7 @@ for i in range(sic.shape[0]):
 #                    color='w')
 #    par=m.drawmeridians(meridians,labels=[True,True,False,False],linewidth=0.0,
 #                        fontsize=3,color='w')
-    setcolor(par,'darkgrey')
+#    setcolor(par,'darkgrey')
     
     cmap = cmocean.cm.ice  
     cs.set_cmap(cmap)
