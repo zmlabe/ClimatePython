@@ -23,9 +23,9 @@ directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/VisualsNOAA/SICm
 now = datetime.datetime.now()
 month = now.month
 
-years = np.arange(1979,2018+1,1)
+years = np.arange(1979,2019+1,1)
 
-data = Dataset(directorydata + 'NSIDC_09_1979-2018.nc')
+data = Dataset(directorydata + 'NSIDC_09_1979-2019.nc')
 lat2 = data.variables['lat'][:]
 lon2 = data.variables['lon'][:]
 sic = data.variables['sic'][:,:,:]
@@ -93,8 +93,6 @@ for i in range(sic.shape[0]):
                         fontsize=5,color='w')
     setcolor(par,'darkgrey')
     
-#    cmap = cmocean.cm.ice  
-#    cs.set_cmap(cmap)
     plt.annotate(r'\textbf{%s}' % years[i],textcoords='axes fraction',
                 xy=(0,0), xytext=(-0.4,0.92),
             fontsize=50,color='darkgrey')
@@ -106,7 +104,7 @@ for i in range(sic.shape[0]):
         plt.savefig(directoryfigure + 'icy_0%s.png' % i,dpi=300)
     else:
         plt.savefig(directoryfigure + 'icy_%s.png' % i,dpi=300)
-        if i == 39:
+        if i == 40:
             plt.savefig(directoryfigure + 'icy_991.png',dpi=300)
             plt.savefig(directoryfigure + 'icy_992.png',dpi=300)
             plt.savefig(directoryfigure + 'icy_993.png',dpi=300)

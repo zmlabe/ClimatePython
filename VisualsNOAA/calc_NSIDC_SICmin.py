@@ -23,7 +23,7 @@ directorydata = '/seley/zlabe/seaice/nsidc/SepMinSIC/'
 directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/VisualsNOAA/' 
 
 yearmin = 1979               # first time includes 12 months
-yearmax = 2018
+yearmax = 2019
 years = np.arange(yearmin,yearmax+1,1)
 months = np.arange(1,13,1)
        
@@ -62,6 +62,8 @@ def sicRead(directory,years):
             filename = 'nt_%s0915_f13_v1.1_n.bin' % (years[i])
         elif years[i]>2007 and years[i]<=2018:
             filename = 'nt_%s0915_f17_v1.1_n.bin' % (years[i])
+        elif years[i]>=2019:
+            filename = 'nt_%s0915_f18_nrt_n.bin' % (years[i])
         infile = directory + filename
         
         with open(infile, 'rb') as fr:
@@ -87,17 +89,17 @@ def sicRead(directory,years):
 ### Call data
 lat2,lon2,sic,hdr,mask = sicRead(directorydata,years)
 
-### Calculate climatology
-yearmean = np.where((years>=1981) & (years<=2010))[0]
-mean = np.nanmedian(sic[yearmean],axis=0)
+#### Calculate climatology
+#yearmean = np.where((years>=1981) & (years<=2010))[0]
+#mean = np.nanmedian(sic[yearmean],axis=0)
 
 def netcdfFile(lats,lons,var,directory):
     print('\n>>> Using netcdfFile function!')
     
-    name = 'NSIDC_09_1979-2018.nc'
+    name = 'NSIDC_09_1979-2019.nc'
     filename = directory + name
     ncfile = Dataset(filename,'w',format='NETCDF4')
-    ncfile.description = '15 September 1979-2018 SIC data'
+    ncfile.description = '15 September 1979-2019 SIC data'
     
     ### Dimensions
     ncfile.createDimension('years',var.shape[0])
@@ -118,7 +120,7 @@ def netcdfFile(lats,lons,var,directory):
     ncfile.references = 'SSMIS (DMSP)]'
     
     ### Data
-    years[:] = np.arange(1979,2018+1,1)
+    years[:] = np.arange(1979,2019+1,1)
     latitude[:] = lats
     longitude[:] = lons
     varns[:] = var
@@ -159,4 +161,4 @@ def netcdfFileMean(lats,lons,var,directory):
     print('*Completed: Created netCDF4 File!')
     
 netcdfFile(lat2,lon2,sic,directorydata)
-netcdfFileMean(lat2,lon2,mean,directorydata)
+#netcdfFileMean(lat2,lon2,mean,directorydata)
