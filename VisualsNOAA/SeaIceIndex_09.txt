@@ -1,3 +1,4 @@
+year, mo,    data-type, region, extent,   area
 1979,  9,      Goddard,      N,   7.05,   4.58
 1980,  9,      Goddard,      N,   7.67,   4.87
 1981,  9,      Goddard,      N,   7.14,   4.44
@@ -37,3 +38,5 @@
 2015,  9,      Goddard,      N,   4.62,   3.42
 2016,  9,      Goddard,      N,   4.53,   2.91
 2017,  9,      Goddard,      N,   4.82,   3.35
+2018,  9,      Goddard,      N,   4.79,   3.35
+2019,  9,      NRTSI-G,      N,   4.32,   3.13

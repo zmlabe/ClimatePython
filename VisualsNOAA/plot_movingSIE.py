@@ -21,7 +21,7 @@ directorydata = '/surtsey/zlabe/seaice/sic/sic_rename/'
 directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/VisualsNOAA/' 
 
 yearmin = 1979               # first time includes 12 months
-yearmax = 2017
+yearmax = 2019
 years = np.arange(yearmin,yearmax+1,1)
 months = np.arange(1,13,1)
        
@@ -46,14 +46,14 @@ sie90 = np.genfromtxt('sie_tresh_90.txt',unpack=True,delimiter=',')
 fig = plt.figure()
 ax = plt.subplot(111) 
 
+plt.rc('text',usetex=True)
+plt.rc('font',**{'family':'sans-serif','sans-serif':['Avant Garde']})
 matplotlib.rc('savefig', facecolor='black')
 matplotlib.rc('axes', edgecolor='darkgrey')
 matplotlib.rc('xtick', color='darkgrey')
 matplotlib.rc('ytick', color='darkgrey')
 matplotlib.rc('axes', labelcolor='darkgrey')
 matplotlib.rc('axes', facecolor='black')
-plt.rc('text',usetex=True)
-plt.rc('font',**{'family':'sans-serif','sans-serif':['Avant Garde']})
 
 ### Adjust axes in time series plots 
 def adjust_spines(ax, spines):
@@ -92,27 +92,27 @@ ax.tick_params('both',length=5.5,width=2,which='major')
 #bar44 = plt.fill_between(years,sie75,0,color=cmocean.cm.ice(0.45))
 #bar55 = plt.fill_between(years,sie90,0,color=cmocean.cm.ice(0.2))
 
-plt.text(2017.4,sie15[-1]-0.1,r'\textbf{15\%}',color=cmocean.cm.ice(0.99),fontsize=15)
-plt.text(2017.4,sie30[-1]-0.1,r'\textbf{30\%}',color=cmocean.cm.ice(0.8),fontsize=15)
-plt.text(2017.4,sie60[-1]-0.1,r'\textbf{60\%}',color=cmocean.cm.ice(0.65),fontsize=15)
-plt.text(2017.4,sie75[-1]-0.1,r'\textbf{75\%}',color=cmocean.cm.ice(0.45),fontsize=15)
-plt.text(2017.4,sie90[-1]-0.1,r'\textbf{90\%}',color=cmocean.cm.ice(0.2),fontsize=15)
+plt.text(2019.4,sie15[-1]-0.15,r'\textbf{15\%}',color=cmocean.cm.ice(0.99),fontsize=15)
+plt.text(2019.4,sie30[-1]-0.15,r'\textbf{30\%}',color=cmocean.cm.ice(0.8),fontsize=15)
+plt.text(2019.4,sie60[-1]-0.15,r'\textbf{60\%}',color=cmocean.cm.ice(0.65),fontsize=15)
+plt.text(2019.4,sie75[-1]-0.15,r'\textbf{75\%}',color=cmocean.cm.ice(0.45),fontsize=15)
+plt.text(2019.4,sie90[-1]-0.15,r'\textbf{90\%}',color=cmocean.cm.ice(0.2),fontsize=15)
 
-plt.text(2018,6,r'\textbf{Sea Ice}',color='darkgrey',fontsize=8,
+plt.text(2019,5.5,r'\textbf{Sea Ice}',color='darkgrey',fontsize=8,
           ha='center',va='center')
-plt.text(2018.,5.7,r'\textbf{Concentration}',color='darkgrey',fontsize=8,
+plt.text(2019.,5.2,r'\textbf{Concentration}',color='darkgrey',fontsize=8,
           ha='center',va='center')
 
 plt.ylabel(r'\textbf{Extent [$\bf{\times}$10$^{6}$\ \textbf{km}$^2$]}',
            fontsize=13,color='darkgrey',labelpad=10)
-plt.title(r'\textbf{SEPTEMBER ARCTIC SEA ICE EXTENT}',fontsize=21,
+plt.title(r'\textbf{SEPTEMBER -- ARCTIC SEA ICE EXTENT}',fontsize=20,
           color='w')
 
-plt.xticks(np.arange(1979,2018,4),map(str,np.arange(1979,2018,4)),rotation=0,fontsize=10)
+plt.xticks(np.arange(1979,2020,4),map(str,np.arange(1979,2020,4)),rotation=0,fontsize=10)
 ylabels = map(str,np.arange(0,10,1))
 plt.yticks(np.arange(0,10,1),ylabels,fontsize=10)
 plt.ylim([0,8])
-plt.xlim([1979,2017])
+plt.xlim([1979,2019])
 
 def animate(i):
     x = years[0:(i)]
@@ -129,7 +129,7 @@ def animate(i):
     return p15,p30,p60,p75,p90
     
 ani = animation.FuncAnimation(fig,animate,frames=70,interval=180,repeat=True,
-                              blit=False)
+                              blit=True)
 ani.save('NSIDC_SIC_thresh_moving.gif',writer='imagemagick',dpi=300)
 
 #plt.savefig('NSIDC_SIC_thresh_moving.png',dpi=300)
