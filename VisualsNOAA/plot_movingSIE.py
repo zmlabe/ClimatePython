@@ -81,16 +81,16 @@ ax.spines['left'].set_linewidth(2)
 ax.spines['bottom'].set_linewidth(2)
 ax.tick_params('both',length=5.5,width=2,which='major')
 
-#bar1, = plt.plot(years,sie15,color=cmocean.cm.ice(0.99))
-#bar2, = plt.plot(years,sie30,color=cmocean.cm.ice(0.8))
-#bar3, = plt.plot(years,sie60,color=cmocean.cm.ice(0.65))
-#bar4, = plt.plot(years,sie75,color=cmocean.cm.ice(0.45))
-#bar5, = plt.plot(years,sie90,color=cmocean.cm.ice(0.2))
-#bar11 = plt.fill_between(years,sie15,0,color=cmocean.cm.ice(0.99))
-#bar22 = plt.fill_between(years,sie30,0,color=cmocean.cm.ice(0.8))
-#bar33 = plt.fill_between(years,sie60,0,color=cmocean.cm.ice(0.65))
-#bar44 = plt.fill_between(years,sie75,0,color=cmocean.cm.ice(0.45))
-#bar55 = plt.fill_between(years,sie90,0,color=cmocean.cm.ice(0.2))
+bar1, = plt.plot(years,sie15,color=cmocean.cm.ice(0.99))
+bar2, = plt.plot(years,sie30,color=cmocean.cm.ice(0.8))
+bar3, = plt.plot(years,sie60,color=cmocean.cm.ice(0.65))
+bar4, = plt.plot(years,sie75,color=cmocean.cm.ice(0.45))
+bar5, = plt.plot(years,sie90,color=cmocean.cm.ice(0.2))
+bar11 = plt.fill_between(years,sie15,0,color=cmocean.cm.ice(0.99))
+bar22 = plt.fill_between(years,sie30,0,color=cmocean.cm.ice(0.8))
+bar33 = plt.fill_between(years,sie60,0,color=cmocean.cm.ice(0.65))
+bar44 = plt.fill_between(years,sie75,0,color=cmocean.cm.ice(0.45))
+bar55 = plt.fill_between(years,sie90,0,color=cmocean.cm.ice(0.2))
 
 plt.text(2019.4,sie15[-1]-0.15,r'\textbf{15\%}',color=cmocean.cm.ice(0.99),fontsize=15)
 plt.text(2019.4,sie30[-1]-0.15,r'\textbf{30\%}',color=cmocean.cm.ice(0.8),fontsize=15)
@@ -114,22 +114,22 @@ plt.yticks(np.arange(0,10,1),ylabels,fontsize=10)
 plt.ylim([0,8])
 plt.xlim([1979,2019])
 
-def animate(i):
-    x = years[0:(i)]
-    y15 = sie15[0:(i)]
-    y30 = sie30[0:(i)]
-    y60 = sie60[0:(i)]
-    y75 = sie75[0:(i)]
-    y90 = sie90[0:(i)]
-    p15 = plt.fill_between(x,y15,0,color=cmocean.cm.ice(0.99))
-    p30 = plt.fill_between(x,y30,0,color=cmocean.cm.ice(0.8))
-    p60 = plt.fill_between(x,y60,0,color=cmocean.cm.ice(0.65))
-    p75 = plt.fill_between(x,y75,0,color=cmocean.cm.ice(0.45))
-    p90 = plt.fill_between(x,y90,0,color=cmocean.cm.ice(0.2))
-    return p15,p30,p60,p75,p90
-    
-ani = animation.FuncAnimation(fig,animate,frames=70,interval=180,repeat=True,
-                              blit=True)
-ani.save('NSIDC_SIC_thresh_moving.gif',writer='imagemagick',dpi=300)
+#def animate(i):
+#    x = years[0:(i)]
+#    y15 = sie15[0:(i)]
+#    y30 = sie30[0:(i)]
+#    y60 = sie60[0:(i)]
+#    y75 = sie75[0:(i)]
+#    y90 = sie90[0:(i)]
+#    p15 = plt.fill_between(x,y15,0,color=cmocean.cm.ice(0.99))
+#    p30 = plt.fill_between(x,y30,0,color=cmocean.cm.ice(0.8))
+#    p60 = plt.fill_between(x,y60,0,color=cmocean.cm.ice(0.65))
+#    p75 = plt.fill_between(x,y75,0,color=cmocean.cm.ice(0.45))
+#    p90 = plt.fill_between(x,y90,0,color=cmocean.cm.ice(0.2))
+#    return p15,p30,p60,p75,p90
+#    
+#ani = animation.FuncAnimation(fig,animate,frames=70,interval=180,repeat=True,
+#                              blit=True)
+#ani.save('NSIDC_SIC_thresh_moving.gif',writer='imagemagick',dpi=300)
 
-#plt.savefig('NSIDC_SIC_thresh_moving.png',dpi=300)
+plt.savefig('NSIDC_SIC_thresh_moving.png',dpi=300)
