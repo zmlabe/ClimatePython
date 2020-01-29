@@ -30,7 +30,7 @@ sst = np.reshape(sstn,(sstn.shape[0]//12,12,lat1.shape[0],lon1.shape[0]))
 ### Calculate average for polar cap and mask data
 def aveSST(data,lat,lon,mask,period):
     if mask == 'polar_cap':
-        latpolar = 65.
+        latpolar = 67.
         latq = np.where((lat >= latpolar))[0]
         sstnew = sst[:,:,latq,:]
         latt = lat[latq]
@@ -78,7 +78,7 @@ def aveSST(data,lat,lon,mask,period):
     return sstave,anomperiod,latt,lonn
 
 ### Use functions
-periodmonth = 'sep'
+periodmonth = 'annual'
 meansst_global,period_global,latt,lonn = aveSST(sst,lat1,lon1,'global',periodmonth)
 meansst_polar,period_polar,latt,lonn = aveSST(sst,lat1,lon1,'polar_cap',periodmonth)
 meansst_barents,period_barents,latt,lonn = aveSST(sst,lat1,lon1,'north_barents',periodmonth)

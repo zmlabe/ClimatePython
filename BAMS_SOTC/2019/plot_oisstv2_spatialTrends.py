@@ -129,7 +129,7 @@ par=m.drawmeridians(meridians,labels=[True,True,False,False],linewidth=0.5,
                     fontsize=4,color='k',zorder=11)
 setcolor(par,'k')
 
-cbar.set_label(r'\textbf{SST Linear Trend [$^\circ$C year$\bf{^{-1}}$]}',fontsize=11,color='dimgrey')  
+cbar.set_label(r'\textbf{SST Linear Trend [$^\circ$C/year]}',fontsize=11,color='dimgrey')  
 cbar.set_ticks(barlim)
 cbar.set_ticklabels(list(map(str,barlim))) 
 cbar.ax.tick_params(axis='x', size=.001,labelcolor='k')
