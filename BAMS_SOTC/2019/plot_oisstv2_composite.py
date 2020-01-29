@@ -171,5 +171,5 @@ plt.annotate(r'\textbf{Laptev}',textcoords='axes fraction',
             fontsize=6.5,color='k',zorder=11)
 
 ###########################################################################
-plt.savefig(directoryfigure + 'SST-SIC_%s_%s.png' % (monthq,2019),dpi=600)
+plt.savefig(directoryfigure + 'SST-SIC_%s_%s.png' % (monthq+1,2019),dpi=600)
 print('Completed: Script done!')
