@@ -13,15 +13,17 @@ from mpl_toolkits.basemap import Basemap, addcyclic, shiftgrid
 import numpy as np
 import cmocean
 from netCDF4 import Dataset
-import calc_SeaIceConc_CDRv3 as ICE
 
 ### Define constants
-directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Data/'
-directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Figures/'
+directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Data/'
+directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Figures/'
 years = np.arange(1982,2019+1,1)
 
-### Read in sea ice data
-sic,yearssic,latsic,lonsic = ICE.readSIC(7,True)
+datasic = Dataset(directorydata + 'icec.mnmean.nc')
+sicn = datasic.variables['icec'][1:] # 0-100
+latsic = datasic.variables['lat'][:]
+lonsic = datasic.variables['lon'][:]
+datasic.close()
 
 datasst = Dataset(directorydata + 'sst.mnmean.nc')
 sstn = datasst.variables['sst'][1:] # degrees C
@@ -30,29 +32,31 @@ lonsst = datasst.variables['lon'][:]
 datasst.close()
 
 ### Reshape for [year,month,lat,lon]
+lonsic2,latsic2 = np.meshgrid(lonsic,latsic)
 lonsst2,latsst2 = np.meshgrid(lonsst,latsst)
+sic = np.reshape(sicn,(sicn.shape[0]//12,12,latsic.shape[0],lonsic.shape[0]))
 sst = np.reshape(sstn,(sstn.shape[0]//12,12,latsst.shape[0],lonsst.shape[0]))
 
 ### Mask data
-sic[np.where(sic > 100)] = np.nan
 siccopy = sic.copy()
-siccopy[np.where(siccopy < 15.)] = 0
+siccopy[np.where(siccopy <= 15.)] = 0
 sic[np.where(sic<15.)]=np.nan
 sic[np.where(sic>=15.)]=100.
 
 ### Calculate climatology (1982-2010)
 yearq = np.where((years >= 1982) & (years <= 2010))[0]
 meansst = np.nanmean(sst[yearq,:,:,:],axis=0)
-medianice = np.nanmedian(siccopy[yearq,:,:],axis=0)
+medianice = np.nanmedian(siccopy[yearq,:,:,:],axis=0)
 
 ### Calculate anomalies
 anomsst = sst - meansst
 anomsic = sic - medianice
 
 ### Select month
-monsst = anomsst[:,7,:,:]
-monice = sic[:,:,:]
-climoice = medianice[:,:]
+monq = 7 # index for August
+monsst = anomsst[:,monq,:,:]
+monice = sic[:,monq,:,:]
+climoice = medianice[monq,:,:]
 
 ###############################################################################
 ###############################################################################
@@ -95,6 +99,8 @@ m = Basemap(projection='npstere',boundinglat=60,lon_0=0,
 
 ###########################################################################
 varn, lons_cyclic = addcyclic(sstyear, lonsst)
+varsic , lons_cyclic = addcyclic(sicyear,lonsic)
+varsicmean , lons_cyclic = addcyclic(climoice,lonsic)
 lon2d, lat2d = np.meshgrid(lons_cyclic, latsst)
 x, y = m(lon2d, lat2d)
 
@@ -104,11 +110,11 @@ circle = m.drawmapboundary(fill_color='darkgrey',
 circle.set_clip_on(False)
 
 ###########################################################################
-cs1 = m.contourf(lonsic,latsic,sicyear,alpha=1,zorder=3,colors='w',latlon=True)
+cs1 = m.contourf(x,y,varsic,alpha=1,zorder=3,colors='w')
 cs = m.contourf(x,y,varn,limit,extend='both',zorder=2)
-cs3 = m.contour(lonsic,latsic,climoice,
+cs3 = m.contour(x,y,varsicmean,
                     np.arange(15,30,15),alpha=1,
-                    linewidths=1.2,colors='gold',zorder=3,latlon=True)
+                    linewidths=1.2,colors='gold',zorder=3)
 
 ###########################################################################
 m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
@@ -135,6 +141,7 @@ m = Basemap(projection='npstere',boundinglat=60,lon_0=0,
 
 ###########################################################################
 varn, lons_cyclic = addcyclic(sstyear18, lonsst)
+varsic , lons_cyclic = addcyclic(sicyear18,lonsic)
 lon2d, lat2d = np.meshgrid(lons_cyclic, latsst)
 x, y = m(lon2d, lat2d)
 
@@ -144,11 +151,11 @@ circle = m.drawmapboundary(fill_color='darkgrey',
 circle.set_clip_on(False)
 
 ###########################################################################
-cs1 = m.contourf(lonsic,latsic,sicyear18,alpha=1,zorder=3,colors='w',latlon=True)
+cs1 = m.contourf(x,y,varsic,alpha=1,zorder=3,colors='w')
 cs = m.contourf(x,y,varn,limit,extend='both',zorder=2)
-cs3 = m.contour(lonsic,latsic,climoice,
+cs3 = m.contour(x,y,varsicmean,
                     np.arange(15,30,15),alpha=1,
-                    linewidths=1.2,colors='gold',zorder=3,latlon=True)
+                    linewidths=1.2,colors='gold',zorder=3)
 
 ###########################################################################
 m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
@@ -200,6 +207,6 @@ cbar.outline.set_linewidth(0.8)
 cbar.ax.tick_params(labelsize=6)
 
 ###########################################################################
-plt.savefig(directoryfigure + 'SST-SIC_%s_%s_Anomalies.png' % (8,2019),
+plt.savefig(directoryfigure + 'SST-SIC_%s_%s_Anomalies.png' % (monq+1,2019),
             dpi=600)
 print('Completed: Script done!')

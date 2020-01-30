@@ -16,11 +16,10 @@ import palettable.cubehelix as cm
 from netCDF4 import Dataset
 import calc_Utilities as UT
 import scipy.stats as sts
-import calc_SeaIceConc_CDRv3 as ICE
 
 ### Define constants
-directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Data/'
-directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Figures/'
+directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Data/'
+directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Figures/'
 years = np.arange(1982,2019+1,1)
 time = np.arange(years.shape[0])
 
@@ -34,11 +33,22 @@ datasst.close()
 sst = np.reshape(sstn,(sstn.shape[0]//12,12,lat1.shape[0],lon1.shape[0]))
 
 ### Select month 
-monthq = 7
+monthq = 8 - 1
 sstmonth = sst[:,monthq,:,:]
 
 ### Read in sea ice data
-sicmonth,yearssic,latsic,lonsic = ICE.readSIC(monthq,True)
+datasic = Dataset(directorydata + 'icec.mnmean.nc')
+sicn = datasic.variables['icec'][1:] # 0-100
+latsic = datasic.variables['lat'][:]
+lonsic = datasic.variables['lon'][:]
+datasic.close()
+
+sic = np.reshape(sicn,(sicn.shape[0]//12,12,latsic.shape[0],lonsic.shape[0]))
+sicmonth = sic[:,monthq,:,:]
+
+### Mask data
+sic[np.where(sic<15.)]=np.nan
+sic[np.where(sic>=15.)]=100.
 
 ###############################################################################
 ###############################################################################
@@ -46,11 +56,6 @@ sicmonth,yearssic,latsic,lonsic = ICE.readSIC(monthq,True)
 ### Select year
 sstyear = sstmonth[-1,:,:] # 2019
 sicyear = sicmonth[-1,:,:] # 2019
-
-### Mask sea ice data
-sicyear[np.where(sicyear > 100)] = np.nan
-sicyear[np.where(sicyear < 15)] = np.nan
-sicyear[np.where(sicyear >= 15)] = 100.
 
 ###########################################################################
 ###########################################################################
@@ -84,6 +89,7 @@ m = Basemap(projection='npstere',boundinglat=60,lon_0=0,
 
 ###########################################################################
 varn, lons_cyclic = addcyclic(sstyear, lon1)
+varsic , lons_cyclic = addcyclic(sicyear,lonsic)
 lon2d, lat2d = np.meshgrid(lons_cyclic, lat1)
 x, y = m(lon2d, lat2d)
 
@@ -93,8 +99,7 @@ circle = m.drawmapboundary(fill_color='darkgrey',
 circle.set_clip_on(False)
 
 ###########################################################################
-cs1 = m.contourf(lonsic,latsic,sicyear,alpha=1,zorder=3,colors='w',
-                 latlon=True)
+cs1 = m.contourf(x,y,varsic,alpha=1,zorder=3,colors='w')
 cs = m.contourf(x,y,varn,limit,extend='both',zorder=2)
 csl = m.contour(x,y,varn,np.arange(10,15,5),linestyles='-',
                linewidths=2,colors='k',zorder=4)

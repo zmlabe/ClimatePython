@@ -14,11 +14,10 @@ import cmocean
 from netCDF4 import Dataset
 import calc_Utilities as UT
 import scipy.stats as sts
-import calc_SeaIceConc_CDRv3 as ICE
 
 ### Define constants
-directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Data/'
-directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Figures/'
+directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Data/'
+directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Figures/'
 years = np.arange(1982,2019+1,1)
 time = np.arange(years.shape[0])
 
@@ -32,7 +31,7 @@ datasst.close()
 sst = np.reshape(sstn,(sstn.shape[0]//12,12,lat1.shape[0],lon1.shape[0]))
 
 ### Select month 
-monthq = 7 
+monthq = 8 - 1 
 sstmonth = sst[:,monthq,:,:]
 
 ### Calculate trends over the 1982-2019 period
@@ -55,20 +54,26 @@ trends = slope * mask
 trends[np.where(trends == 0.0)] = np.nan
 
 ### Read in sea ice data
-sic,yearssic,latsic,lonsic = ICE.readSIC(7,True)
+datasic = Dataset(directorydata + 'icec.mnmean.nc')
+sicn = datasic.variables['icec'][1:] # 0-100
+latsic = datasic.variables['lat'][:]
+lonsic = datasic.variables['lon'][:]
+datasic.close()
+
+sic = np.reshape(sicn,(sicn.shape[0]//12,12,latsic.shape[0],lonsic.shape[0]))
+siccopy = sic.copy()
+siccopy[np.where(siccopy <= 15.)] = 0
+
+yearq = np.where((years >= 1982) & (years <= 2010))[0]
+medianice = np.nanmedian(siccopy[yearq,:,:,:],axis=0)
+
+### Select month
+varsic = sic[:,monthq,:,:]
+climoice = medianice[monthq,:,:]
 
 ### Mask data
-sic[np.where(sic > 100)] = np.nan
-siccopy = sic.copy()
-siccopy[np.where(siccopy < 15.)] = 0
 sic[np.where(sic<15.)]=np.nan
 sic[np.where(sic>=15.)]=100.
-
-### Calculate climatology (1982-2010)
-yearq = np.where((years >= 1982) & (years <= 2010))[0]
-medianice = np.nanmedian(siccopy[yearq,:,:],axis=0)
-
-climoice = medianice[:,:]
 
 ###########################################################################
 ###########################################################################
@@ -93,6 +98,8 @@ m = Basemap(projection='npstere',boundinglat=60,lon_0=0,
             resolution='l',round =True)
 
 varn, lons_cyclic = addcyclic(trends, lon1)
+varsic , lons_cyclic = addcyclic(varsic,lonsic)
+varsicmean , lons_cyclic = addcyclic(climoice,lonsic)
 lon2d, lat2d = np.meshgrid(lons_cyclic, lat1)
 x, y = m(lon2d, lat2d)
           
@@ -100,12 +107,12 @@ circle = m.drawmapboundary(fill_color='darkgrey',
                            color='dimgrey',linewidth=0.7)
 circle.set_clip_on(False)
 
-cs1 = m.contourf(lonsic,latsic,sic[-1],100,extend='both',alpha=1,zorder=2,
-                 colors='w',latlon=True)
+cs1 = m.contourf(x,y,varsic[-1],100,extend='both',alpha=1,zorder=2,
+                 colors='w')
 cs = m.contourf(x,y,varn,limit,extend='both')
-cs2 = m.contour(lonsic,latsic,climoice,
+cs2 = m.contour(x,y,varsicmean,
                 np.arange(15,30,15),alpha=1,
-                linewidths=2,colors='gold',zorder=3,latlon=True)
+                linewidths=2,colors='gold',zorder=3)
 
 m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=4)
 m.fillcontinents(color='dimgrey',lake_color='darkgrey',zorder=3)
