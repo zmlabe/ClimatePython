@@ -51,7 +51,7 @@ def readSIC(monthindex,oisst):
     sicm = sicq[:,monthindex,:,:]
     
     ### Read in 2019 data
-    datasic = Dataset(directorydata2 + 'seaice_conc_monthly_icdr_nh_f18_201908_v01r00.nc')
+    datasic = Dataset(directorydata2 + 'seaice_conc_monthly_icdr_nh_f18_20190%s_v01r00.nc' % (monthindex+1))
     sic19 = datasic.variables['seaice_conc_monthly_cdr'][:]
     datasic.close()
 
@@ -75,6 +75,6 @@ def readSIC(monthindex,oisst):
     return sicalloi,yearsnew,lat,lon
 
 ### Test function
-#import numpy as np
-#import matplotlib.pyplot as plt
-#sic,years,lat,lon = readSIC(7,True)
+import numpy as np
+import matplotlib.pyplot as plt
+sic,years,lat,lon = readSIC(7,True)
