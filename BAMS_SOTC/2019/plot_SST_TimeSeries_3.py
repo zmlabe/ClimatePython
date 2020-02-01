@@ -16,10 +16,10 @@ import calc_Utilities as UT
 import scipy.stats as sts
 
 ### Define constants
-directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Data/'
-directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOC/2019/Figures/'
+directorydata = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Data/'
+directoryfigure = '/home/zlabe/Documents/Projects/ClimatePython/BAMS_SOTC/2019/Figures/'
 years = np.arange(1982,2019+1,1)
-month = 'annual'
+month = 'aug'
 
 ### Read in data
 polar = np.genfromtxt(directorydata + 'SST_Arctic_%s_1982-2019.txt' % month)
@@ -90,11 +90,11 @@ l = plt.legend(fontsize=12,loc='upper center',bbox_to_anchor=(0.5,0.09),
 ax1.yaxis.grid(zorder=1,color='dimgrey',alpha=0.35)
 plt.xticks(np.arange(1982,2020,3),map(str,np.arange(1982,2020,3)),
            size=6)
-plt.yticks(np.arange(-10,11,0.5),map(str,np.arange(-10,11,0.5)),
+plt.yticks(np.arange(-10,11,0.25),map(str,np.arange(-10,11,0.25)),
            size=6)
 plt.xlim([1982,2019])
-plt.ylim([-1.5,1.5])
-plt.text(1982,1.39,r'\textbf{[a]}',fontsize=12,color='dimgrey')
+plt.ylim([-0.5,1])
+plt.text(1982,0.94,r'\textbf{[a]}',fontsize=12,color='dimgrey')
 
 plt.ylabel(r'\textbf{Mean SST Anomaly [$^\circ$C]}',fontsize=12,color='k')
 
@@ -112,7 +112,7 @@ ax2.tick_params('both',length=4,width=2,which='major',color='dimgrey')
 
 plt.plot(years,ba,linewidth=2.5,color='deepskyblue',marker='o',
          markersize=4,clip_on=False,
-         label = r'\textbf{Northern Barents: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
+         label = r'\textbf{Bering: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
          (np.round(slopeb,2),np.round(confb,2)))
 plt.plot(years,lineb,linewidth=1.5,color='midnightblue',linestyle='--',
          dashes=(1,0.4),clip_on=False)
@@ -126,8 +126,8 @@ plt.xticks(np.arange(1982,2020,3),map(str,np.arange(1982,2020,3)),
 plt.yticks(np.arange(-10,11,1),map(str,np.arange(-10,11,1)),
            size=6)
 plt.xlim([1982,2019])
-plt.ylim([-3.5,3.5])
-plt.text(1982,3.1,r'\textbf{[b]}',fontsize=12,color='dimgrey')
+plt.ylim([-3,3])
+plt.text(1982,2.5,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 
 ###############################################################################
 ax3 = fig.add_subplot(gs[1,1])
@@ -157,8 +157,8 @@ plt.xticks(np.arange(1982,2020,3),map(str,np.arange(1982,2020,3)),
 plt.yticks(np.arange(-10,11,1),map(str,np.arange(-10,11,1)),
            size=6)
 plt.xlim([1982,2019])
-plt.ylim([-3.5,3.5])
-plt.text(1982,3.1,r'\textbf{[c]}',fontsize=12,color='dimgrey')
+plt.ylim([-3,3])
+plt.text(1982,2.5,r'\textbf{[c]}',fontsize=12,color='dimgrey')
 
 plt.tight_layout()
 

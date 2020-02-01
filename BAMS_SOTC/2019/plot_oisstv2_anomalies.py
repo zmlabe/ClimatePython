@@ -78,7 +78,7 @@ def draw_screen_poly( lats, lons, m):
     x, y = m( lons, lats )
     xy = zip(x,y)
     poly = Polygon(list(xy),edgecolor='k',facecolor='none',alpha=1,
-                   linewidth=1,linestyle='-',zorder=4)
+                   linewidth=1,linestyle='-',zorder=4,clip_on=True)
     plt.gca().add_patch(poly)
 
 ###########################################################################
@@ -111,13 +111,16 @@ cs3 = m.contour(lonsic,latsic,climoice,
                     linewidths=1.2,colors='gold',zorder=3,latlon=True)
 
 ###########################################################################
-m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
-m.fillcontinents(color='dimgrey',lake_color='darkgrey',zorder=5)
+#m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
+#m.fillcontinents(color='dimgrey',lake_color='darkgrey',zorder=5)
 
 latsb = [ 76.4, 79.4, 79.4, 76.5 ]
 lonsb = [ 38, 38, 60, 60 ]
 draw_screen_poly(latsb,lonsb,m)
 latsc = [ 68, 74, 74, 68 ]
+lonsc = [ 180, 180, 200, 200 ]
+draw_screen_poly(latsc,lonsc,m)
+latsc = [ 54, 64, 64, 54 ]
 lonsc = [ 180, 180, 200, 200 ]
 draw_screen_poly(latsc,lonsc,m)
 
@@ -158,6 +161,9 @@ latsb = [ 76.4, 79.4, 79.4, 76.5 ]
 lonsb = [ 38, 38, 60, 60 ]
 draw_screen_poly(latsb,lonsb,m)
 latsc = [ 68, 74, 74, 68 ]
+lonsc = [ 180, 180, 200, 200 ]
+draw_screen_poly(latsc,lonsc,m)
+latsc = [ 54, 64, 64, 54 ]
 lonsc = [ 180, 180, 200, 200 ]
 draw_screen_poly(latsc,lonsc,m)
 
