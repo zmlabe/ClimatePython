@@ -1,4 +1,3 @@
-
 def readSIC(monthindex,oisst):
     ### Import modules
     import numpy as np
@@ -75,6 +74,6 @@ def readSIC(monthindex,oisst):
     return sicalloi,yearsnew,lat,lon
 
 ### Test function
-import numpy as np
-import matplotlib.pyplot as plt
-sic,years,lat,lon = readSIC(7,True)
+#import numpy as np
+#import matplotlib.pyplot as plt
+#sic,years,lat,lon = readSIC(7,True)

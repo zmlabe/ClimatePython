@@ -111,8 +111,8 @@ cs3 = m.contour(lonsic,latsic,climoice,
                     linewidths=1.2,colors='gold',zorder=3,latlon=True)
 
 ###########################################################################
-#m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
-#m.fillcontinents(color='dimgrey',lake_color='darkgrey',zorder=5)
+m.drawcoastlines(color='darkgray',linewidth=0.3,zorder=6)
+m.fillcontinents(color='dimgrey',lake_color='darkgrey',zorder=5)
 
 latsb = [ 76.4, 79.4, 79.4, 76.5 ]
 lonsb = [ 38, 38, 60, 60 ]
