@@ -24,7 +24,7 @@ month = 'aug'
 ### Read in data
 polar = np.genfromtxt(directorydata + 'SST_Arctic_%s_1982-2019.txt' % month)
 ch = np.genfromtxt(directorydata + 'SST_Chukchi_%s_1982-2019.txt' % month)
-ba = np.genfromtxt(directorydata + 'SST_Barents_%s_1982-2019.txt' % month)
+ba = np.genfromtxt(directorydata + 'SST_Bering_%s_1982-2019.txt' % month)
 
 ### Calculate trend lines
 slopep,interceptp,rvaluep,pvaluep,std_errp = sts.linregress(years,polar)
@@ -65,7 +65,6 @@ def adjust_spines(ax, spines):
 ###############################################################################
 fig = plt.figure(figsize=(9,5))
 gs = fig.add_gridspec(2,2)
-
 ax1 = fig.add_subplot(gs[:,0])
 adjust_spines(ax1, ['left', 'bottom'])
 ax1.spines['top'].set_color('none')
@@ -84,7 +83,7 @@ plt.plot(years,polar,linewidth=3.8,color='k',marker='o',
 plt.plot(years,linep,linewidth=1.5,color='k',linestyle='--',
          dashes=(1,0.4),clip_on=False)
 
-l = plt.legend(fontsize=12,loc='upper center',bbox_to_anchor=(0.5,0.09),
+l = plt.legend(fontsize=12,loc='upper center',bbox_to_anchor=(0.5,0.075),
                ncol=1,frameon=False,fancybox=True,shadow=False)
 
 ax1.yaxis.grid(zorder=1,color='dimgrey',alpha=0.35)
@@ -117,7 +116,7 @@ plt.plot(years,ba,linewidth=2.5,color='deepskyblue',marker='o',
 plt.plot(years,lineb,linewidth=1.5,color='midnightblue',linestyle='--',
          dashes=(1,0.4),clip_on=False)
 
-l = plt.legend(fontsize=7,loc='upper center',bbox_to_anchor=(0.5,0.09),
+l = plt.legend(fontsize=7,loc='upper center',bbox_to_anchor=(0.5,0.11),
                ncol=1,frameon=False,fancybox=True,shadow=False)
 
 ax2.yaxis.grid(zorder=1,color='dimgrey',alpha=0.35)
@@ -148,7 +147,7 @@ plt.plot(years,ch,linewidth=2.5,color='crimson',marker='o',
 plt.plot(years,linec,linewidth=1.5,color='maroon',linestyle='--',
          dashes=(1,0.4),clip_on=False)
 
-l = plt.legend(fontsize=7,loc='upper center',bbox_to_anchor=(0.5,0.09),
+l = plt.legend(fontsize=7,loc='upper center',bbox_to_anchor=(0.5,0.11),
                ncol=1,frameon=False,fancybox=True,shadow=False)
 
 ax3.yaxis.grid(zorder=1,color='dimgrey',alpha=0.35)

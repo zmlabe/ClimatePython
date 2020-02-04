@@ -120,7 +120,7 @@ print('----------------------------\n')
 std_err = std_err*1.96
 
 #### Saving files for time series data
-#for i in range(len(dataall)):
-#    np.savetxt(directorydata + 'SST_%s_%s_1982-2019.txt' % (regions[i],periodmonth),
-#               dataall[i])
-#    print('Completed: Saved data for %s!' % regions[i])
+for i in range(len(dataall)):
+    np.savetxt(directorydata + 'SST_%s_%s_1982-2019.txt' % (regions[i],periodmonth),
+               dataall[i])
+    print('Completed: Saved data for %s!' % regions[i])

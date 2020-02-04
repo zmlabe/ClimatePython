@@ -28,7 +28,6 @@ def readNSIDCData(currentmnq):
 def calcSIE(thresh,region,monq):
     ### Import modules
     import numpy as np
-    import matplotlib.pyplot as plt
     import calc_SeaIceConc_CDRv3 as ICE
     
     ### Read in sea ice concentration data
@@ -102,10 +101,10 @@ def calcSIE(thresh,region,monq):
     return ext,nsidc
 
 ### Call functions
-import numpy as np
-import matplotlib.pyplot as plt
-ext,nsidc = calcSIE(15,'north_barents',8)
-plt.plot(ext,label='weight')
-plt.plot(nsidc,label='NSIDC')
-plt.legend()
-plt.savefig('/home/zlabe/Desktop/test.png',dpi=300)
+#import numpy as np
+#import matplotlib.pyplot as plt
+#ext,nsidc = calcSIE(15,'north_barents',8)
+#plt.plot(ext,label='weight')
+#plt.plot(nsidc,label='NSIDC')
+#plt.legend()
+#plt.savefig('/home/zlabe/Desktop/test.png',dpi=300)
