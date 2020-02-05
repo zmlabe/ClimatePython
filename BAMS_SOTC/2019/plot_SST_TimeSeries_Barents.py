@@ -95,7 +95,7 @@ a.tick_params('both',length=4,width=2,which='major',color='dimgrey')
 
 plt.plot(years,ba,linewidth=2,color='steelblue',marker='o',
          markersize=3,clip_on=False,
-         label = r'\textbf{Northern Barents: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
+         label = r'\textbf{Northern Barents: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C year$\bf{^{-1}}$}' % \
          (np.round(slopeb,2),np.round(confb,2)),zorder=11)
 plt.plot(years,lineb,linewidth=1,color='k',linestyle='--',
          dashes=(1,0.4),clip_on=False,zorder=12)

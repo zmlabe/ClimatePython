@@ -78,7 +78,7 @@ ax1.tick_params('both',length=4,width=2,which='major',color='dimgrey')
 
 plt.plot(years,polar,linewidth=3.8,color='k',marker='o',
          markersize=6,clip_on=False,
-         label = r'\textbf{Arctic [$\bf{>}$67$\bf{^{\circ}}$N]: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
+         label = r'\textbf{Arctic [$\bf{>}$67$\bf{^{\circ}}$N]: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C year$\bf{^{-1}}$}' % \
          (np.round(slopep,2),np.round(confp,2)))
 plt.plot(years,linep,linewidth=1.5,color='k',linestyle='--',
          dashes=(1,0.4),clip_on=False)
@@ -92,7 +92,7 @@ plt.xticks(np.arange(1982,2020,3),map(str,np.arange(1982,2020,3)),
 plt.yticks(np.arange(-10,11,0.25),map(str,np.arange(-10,11,0.25)),
            size=6)
 plt.xlim([1982,2019])
-plt.ylim([-0.5,1])
+plt.ylim([-1,1])
 plt.text(1982,0.94,r'\textbf{[a]}',fontsize=12,color='dimgrey')
 
 plt.ylabel(r'\textbf{Mean SST Anomaly [$^\circ$C]}',fontsize=12,color='k')
@@ -111,7 +111,7 @@ ax2.tick_params('both',length=4,width=2,which='major',color='dimgrey')
 
 plt.plot(years,ba,linewidth=2.5,color='deepskyblue',marker='o',
          markersize=4,clip_on=False,
-         label = r'\textbf{Bering: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
+         label = r'\textbf{Bering: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C year$\bf{^{-1}}$}' % \
          (np.round(slopeb,2),np.round(confb,2)))
 plt.plot(years,lineb,linewidth=1.5,color='midnightblue',linestyle='--',
          dashes=(1,0.4),clip_on=False)
@@ -142,7 +142,7 @@ ax3.tick_params('both',length=4,width=2,which='major',color='dimgrey')
 
 plt.plot(years,ch,linewidth=2.5,color='crimson',marker='o',
          markersize=4,clip_on=False,
-         label = r'\textbf{Chukchi: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C/yr}' % \
+         label = r'\textbf{Chukchi: %s $\bf{\pm}$ %s $\bf{^{\circ}}$C year$\bf{^{-1}}$}' % \
          (np.round(slopec,2),np.round(confc,2)))
 plt.plot(years,linec,linewidth=1.5,color='maroon',linestyle='--',
          dashes=(1,0.4),clip_on=False)

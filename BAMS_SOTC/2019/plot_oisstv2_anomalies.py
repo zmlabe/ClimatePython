@@ -122,7 +122,7 @@ lonsc = [ 180, 180, 200, 200 ]
 draw_screen_poly(latsc,lonsc,m)
 latsc = [ 54, 64, 64, 54 ]
 lonsc = [ 180, 180, 200, 200 ]
-draw_screen_poly(latsc,lonsc,m)
+#draw_screen_poly(latsc,lonsc,m)
 
 ###########################################################################
 cmap = cmocean.cm.balance
@@ -165,7 +165,7 @@ lonsc = [ 180, 180, 200, 200 ]
 draw_screen_poly(latsc,lonsc,m)
 latsc = [ 54, 64, 64, 54 ]
 lonsc = [ 180, 180, 200, 200 ]
-draw_screen_poly(latsc,lonsc,m)
+#draw_screen_poly(latsc,lonsc,m)
 
 ###########################################################################
 cmap = cmocean.cm.balance
