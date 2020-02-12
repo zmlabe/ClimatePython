@@ -98,7 +98,7 @@ plt.text(1982,0.94,r'\textbf{[a]}',fontsize=12,color='dimgrey')
 plt.ylabel(r'\textbf{Mean SST Anomaly [$^\circ$C]}',fontsize=12,color='k')
 
 ###############################################################################
-ax2 = fig.add_subplot(gs[0,1])
+ax2 = fig.add_subplot(gs[1,1])
 adjust_spines(ax2, ['left', 'bottom'])
 ax2.spines['top'].set_color('none')
 ax2.spines['right'].set_color('w')
@@ -129,7 +129,7 @@ plt.ylim([-3,3])
 plt.text(1982,2.5,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 
 ###############################################################################
-ax3 = fig.add_subplot(gs[1,1])
+ax3 = fig.add_subplot(gs[0,1])
 adjust_spines(ax3, ['left', 'bottom'])
 ax3.spines['top'].set_color('none')
 ax3.spines['right'].set_color('w')
