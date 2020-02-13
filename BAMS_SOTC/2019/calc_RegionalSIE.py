@@ -31,5 +31,5 @@ def read_RegionalSIE(regionsea,mon):
     return regsie
 
 #### Call functions
-#regsie = read_RegionalSIE('Barents',8)
-#print(regsie)
+regsie = read_RegionalSIE('Barents',8)
+print(regsie)

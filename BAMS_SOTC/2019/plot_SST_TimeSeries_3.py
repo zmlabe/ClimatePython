@@ -126,7 +126,7 @@ plt.yticks(np.arange(-10,11,1),map(str,np.arange(-10,11,1)),
            size=6)
 plt.xlim([1982,2019])
 plt.ylim([-3,3])
-plt.text(1982,2.5,r'\textbf{[b]}',fontsize=12,color='dimgrey')
+plt.text(1982,2.5,r'\textbf{[c]}',fontsize=12,color='dimgrey')
 
 ###############################################################################
 ax3 = fig.add_subplot(gs[0,1])
@@ -157,7 +157,7 @@ plt.yticks(np.arange(-10,11,1),map(str,np.arange(-10,11,1)),
            size=6)
 plt.xlim([1982,2019])
 plt.ylim([-3,3])
-plt.text(1982,2.5,r'\textbf{[c]}',fontsize=12,color='dimgrey')
+plt.text(1982,2.5,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 
 plt.tight_layout()
 

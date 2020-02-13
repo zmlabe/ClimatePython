@@ -29,8 +29,8 @@ lineb = slopeb*years + interceptb
 confb = std_errb*1.96
 
 ### Read in sea ice data
-extb,nsidc = ICEALL.calcSIE(15,'north_barents',monq)
-#extb = ICEREG.read_RegionalSIE('Barents',monq)
+#extb,nsidc = ICEALL.calcSIE(15,'north_barents',monq)
+extb = ICEREG.read_RegionalSIE('Barents',monq)
 
 ###############################################################################
 ###############################################################################
@@ -112,8 +112,8 @@ plt.xlim([0,37.7])
 a.yaxis.grid(zorder=1,color='dimgrey',alpha=0.35)
 a.tick_params(axis='x', which='major', pad=1)
 a.tick_params(axis='y', which='major', pad=1)
-plt.title(r'\textbf{Northern Barents: Mean Sea Ice Extent [$\bf{\times}$10$\bf{^{6}}$\ \textbf{km}$\bf{^2}$]}',
+plt.title(r'\textbf{Barents: Mean Sea Ice Extent [$\bf{\times}$10$\bf{^{6}}$\ \textbf{km}$\bf{^2}$]}',
            fontsize=7,alpha=1,color='k') 
 plt.text(-1.7,0.23,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 
-plt.savefig(directoryfigure + 'SST_TimeSeries_%s_NorthernBarents.png' % month,dpi = 600)
+plt.savefig(directoryfigure + 'SST_TimeSeries_%s_Barents.png' % month,dpi = 600)
