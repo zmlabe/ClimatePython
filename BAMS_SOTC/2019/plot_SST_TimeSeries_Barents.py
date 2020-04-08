@@ -116,4 +116,5 @@ plt.title(r'\textbf{Barents: Mean Sea Ice Extent [$\bf{\times}$10$\bf{^{6}}$\ \t
            fontsize=7,alpha=1,color='k') 
 plt.text(-1.7,0.23,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 
+plt.savefig(directoryfigure + 'Fig4.ps',dpi=600,format='ps')
 plt.savefig(directoryfigure + 'SST_TimeSeries_%s_Barents.png' % month,dpi = 600)

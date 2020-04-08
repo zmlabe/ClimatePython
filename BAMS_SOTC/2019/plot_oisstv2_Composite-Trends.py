@@ -241,6 +241,7 @@ plt.annotate(r'\textbf{[b]}',textcoords='axes fraction',
 #            xy=(0,0), xytext=(0.49,1.04),
 #            fontsize=13,color='k',ha='center',va='center')
 
+plt.savefig(directoryfigure + 'Fig1.ps',dpi=600,format='ps')
 plt.savefig(directoryfigure + 'Composite-Trends_1982-2019.png',dpi=600)
 print('Completed: Script done!')
 

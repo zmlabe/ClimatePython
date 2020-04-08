@@ -159,4 +159,5 @@ plt.text(1982,2.5,r'\textbf{[b]}',fontsize=12,color='dimgrey')
 plt.ylabel(r'\textbf{Mean SST Anomaly [$^\circ$C]}',fontsize=12,color='k')
 plt.tight_layout()
 
+plt.savefig(directoryfigure + 'Fig3.ps',dpi=600,format='ps')
 plt.savefig(directoryfigure + 'SST_TimeSeries_%s_3_R1.png' % month,dpi = 600)

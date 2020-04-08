@@ -206,6 +206,7 @@ cbar.outline.set_linewidth(0.8)
 cbar.ax.tick_params(labelsize=6)
 
 ###########################################################################
+plt.savefig(directoryfigure + 'Fig2.ps',dpi=600,format='ps')
 plt.savefig(directoryfigure + 'SST-SIC_%s_%s_Anomalies.png' % (8,2019),
             dpi=600)
 print('Completed: Script done!')
