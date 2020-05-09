@@ -5,7 +5,7 @@ def readSIC(monthindex,oisst):
     import math
     
     ### Define directories
-    directorydata = '/surtsey/zlabe/seaice/CDRv3/monthly/' 
+    directorydata = '/home/zlabe/surt/seaice/CDRv3/monthly/' 
     directorydata2 = '/home/zlabe/Documents/Projects/Tests/oisstv2/Data/'
     
     ### Define attributes

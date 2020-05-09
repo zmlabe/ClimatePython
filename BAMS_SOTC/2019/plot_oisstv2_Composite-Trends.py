@@ -152,31 +152,31 @@ cbar.ax.tick_params(labelsize=6)
 ###########################################################################
 plt.annotate(r'\textbf{Barents}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.60,0.325),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{GREENLAND}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.265,0.32),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Baffin}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.215,0.39),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Bay}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.225,0.37),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Beaufort}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.28,0.73),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Chukchi}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.4,0.78),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{East}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.535,0.76),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Siberian}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.50,0.74),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 plt.annotate(r'\textbf{Laptev}',textcoords='axes fraction',
             xy=(0,0), xytext=(0.62,0.63),
-            fontsize=6,color='k',zorder=11)
+            fontsize=6,color='w',zorder=11)
 
 plt.tight_layout()
 
@@ -241,8 +241,8 @@ plt.annotate(r'\textbf{[b]}',textcoords='axes fraction',
 #            xy=(0,0), xytext=(0.49,1.04),
 #            fontsize=13,color='k',ha='center',va='center')
 
-plt.savefig(directoryfigure + 'Fig1.ps',dpi=600,format='ps')
-plt.savefig(directoryfigure + 'Composite-Trends_1982-2019.png',dpi=600)
+plt.savefig(directoryfigure + 'Fig5.4_R2.ps',dpi=600,format='ps')
+plt.savefig(directoryfigure + 'Composite-Trends_1982-2019_R2.png',dpi=600)
 print('Completed: Script done!')
 
 
