@@ -7,7 +7,7 @@ This repository contains a variety of Python tutorials and lectures I've used in
 Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https://twitter.com/ZLabe)
 
 ## Publications
-+ [3] Timmermans, M.-L. and **Z.M. Labe** (2021). [The Arctic] Sea surface temperature [in “State of the Climate in 2020”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-21-0086.1
++ [3] Timmermans, M.-L. and **Z.M. Labe** (2021). [The Arctic] Sea surface temperature [in “State of the Climate in 2020”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-21-0086.1 [[HTML]](https://journals.ametsoc.org/view/journals/bams/102/8/BAMS-D-21-0086.1.xml)[[BibTeX]](https://sites.uci.edu/zlabe/files/2021/08/TheArctic_BAMS_SOTC2020_BibTeX.pdf)
 + [2] Timmermans, M.-L. and **Z.M. Labe** (2020). Sea surface temperature [in “Arctic Report Card 2020”], *NOAA*, DOI:10.25923/v0fs-m920 [[HTML]](https://arctic.noaa.gov/Report-Card/Report-Card-2020/ArtMID/7975/ArticleID/885/Sea-Surface-Temperature)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/12/Timmermans-Labe_ARC2020_SSTChapter_BibTeX.pdf)
 + [1] Timmermans, M.-L., **Z.M. Labe**, and C. Ladd (2020). [The Arctic] Sea surface temperature [in “State of the Climate in 2019”], *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-20-0086.1 [[HTML]](https://journals.ametsoc.org/bams/article/101/8/S239/353884/The-Arctic)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/08/TheArctic_BAMS_SOTC2019_BibTeX.pdf)
 
