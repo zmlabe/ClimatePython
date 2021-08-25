@@ -7,6 +7,7 @@ This repository contains a variety of Python tutorials and lectures I've used in
 Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https://twitter.com/ZLabe)
 
 ## Publications
++ [3] Timmermans, M.-L. and **Z.M. Labe** (2021). [The Arctic] Sea surface temperature [in “State of the Climate in 2020”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-21-0086.1
 + [2] Timmermans, M.-L. and **Z.M. Labe** (2020). Sea surface temperature [in “Arctic Report Card 2020”], *NOAA*, DOI:10.25923/v0fs-m920 [[HTML]](https://arctic.noaa.gov/Report-Card/Report-Card-2020/ArtMID/7975/ArticleID/885/Sea-Surface-Temperature)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/12/Timmermans-Labe_ARC2020_SSTChapter_BibTeX.pdf)
 + [1] Timmermans, M.-L., **Z.M. Labe**, and C. Ladd (2020). [The Arctic] Sea surface temperature [in “State of the Climate in 2019”], *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-20-0086.1 [[HTML]](https://journals.ametsoc.org/bams/article/101/8/S239/353884/The-Arctic)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/08/TheArctic_BAMS_SOTC2019_BibTeX.pdf)
 
@@ -39,8 +40,3 @@ Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https:
 ###### Sea Surface Temperature Data 
 + NOAA Optimum Interpolation Sea Surface Temperature V2 (OISSTv2): [[DATA]](https://www.esrl.noaa.gov/psd/data/gridded/data.noaa.oisst.v2.html)
     + Reynolds, R. W., Rayner, N. A., Smith, T. M., Stokes, D. C., & Wang, W. (2002). An improved in situ and satellite SST analysis for climate. Journal of climate, 15(13), 1609-1625. [[Publication]](https://journals.ametsoc.org/doi/full/10.1175/1520-0442%282002%29015%3C1609%3AAIISAS%3E2.0.CO%3B2)
-
-## Publications
-+ [3] Timmermans, M.-L. and **Z.M. Labe** (2021). [The Arctic] Sea surface temperature [in “State of the Climate in 2020”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-21-0086.1
-+ [2] Timmermans, M.-L. and **Z.M. Labe** (2020). Sea surface temperature [in “Arctic Report Card 2020”], *NOAA*, DOI:10.25923/v0fs-m920 [[HTML]](https://arctic.noaa.gov/Report-Card/Report-Card-2020/ArtMID/7975/ArticleID/885/Sea-Surface-Temperature)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/12/Timmermans-Labe_ARC2020_SSTChapter_BibTeX.pdf)
-+ [1] Timmermans, M.-L., **Z.M. Labe**, and C. Ladd (2020). [The Arctic] Sea surface temperature [in “State of the Climate in 2019”], *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-20-0086.1 [[HTML]](https://journals.ametsoc.org/bams/article/101/8/S239/353884/The-Arctic)[[BibTeX]](https://sites.uci.edu/zlabe/files/2020/08/TheArctic_BAMS_SOTC2019_BibTeX.pdf)
