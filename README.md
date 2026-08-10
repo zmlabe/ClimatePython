@@ -1,12 +1,13 @@
 # ClimatePython [![DOI](https://zenodo.org/badge/135844507.svg)](https://zenodo.org/badge/latestdoi/135844507)
 This repository contains a variety of Python tutorials and lectures I've used in climate/atmospheric sciences. Check back soon!
 
-###### Under construction... ```[Python 3.6]```
+###### Under construction... ```[Python 3.10.4]```
 
 ## Contact
 Zachary Labe - [Research Website](https://zacklabe.com/) - [@ZLabe](https://twitter.com/ZLabe)
 
 ## Publications
++ [15] Timmermans, M.-L. and **Z.M. Labe** (2026). [The Arctic] Sea surface temperature [in “State of the Climate in 2025”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-26-0123.1 [[HTML]](https://journals.ametsoc.org/view/journals/bams/107/8/BAMS-D-26-0123.1.xml)[[BibTeX]](https://zacklabe.com/wp-content/uploads/2026/08/thearctic_bams_sotc2025_bibtex.pdf)
 + [14] Timmermans, M.-L. and **Z.M. Labe** (2025). Sea surface temperature [in “Arctic Report Card 2025”], *NOAA*, DOI:10.25923/pz7y-3b10 [[HTML]](https://arctic.noaa.gov/report-card/report-card-2025/sea-surface-temperature-2025/)[[BibTeX]](https://zacklabe.com/wp-content/uploads/2025/12/timmermans-labe_arc2025_sstchapter_bibtex.pdf)
 + [13] Timmermans, M.-L. and **Z.M. Labe** (2025). [The Arctic] Sea surface temperature [in “State of the Climate in 2024”]. *Bull. Amer. Meteor. Soc.*, DOI:10.1175/BAMS-D-25-0104.1 [[HTML]](https://journals.ametsoc.org/view/journals/bams/106/8/BAMS-D-25-0104.1.xml)[[BibTeX]](https://zacklabe.com/wp-content/uploads/2025/08/thearctic_bams_sotc2024_bibtex.pdf)
 + [12] Timmermans, M.-L. and **Z.M. Labe** (2024). Sea surface temperature [in “Arctic Report Card 2024”], *NOAA*, DOI:10.25923/9z96-aq19 [[HTML]](https://arctic.noaa.gov/report-card/report-card-2024/sea-surface-temperature-2024/)[[BibTeX]](https://zacklabe.com/wp-content/uploads/2024/12/timmermans-labe_arc2024_sstchapter_bibtex.pdf)
